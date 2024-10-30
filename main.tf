@@ -1,5 +1,5 @@
 resource "digitalocean_vpc" "main" {
-    name = "main-piotrkoska"
+    name = "main-piotrkoska-tf-cloud"
     region = "fra1"
     ip_range = "10.222.100.0/24"
 }
