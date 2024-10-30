@@ -1,7 +1,7 @@
 resource "digitalocean_vpc" "main" {
     name = "main-piotrkoska"
     region = "fra1"
-    ip_range = "10.212.100.0/24"
+    ip_range = "10.222.100.0/24"
 }
 
 resource "digitalocean_droplet" "main" {
