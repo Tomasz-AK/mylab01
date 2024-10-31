@@ -22,7 +22,7 @@ jobs:
         with:
           approvers: 'piotr.s.koska@gmail.com'  # Podaj GitHub username osoby zatwierdzającej
           minimum-approvals: 1
-          secret: ${{ github.TOKEN }}
+          secret: ${{ secret.PERSONAL_ACCESS_TOKEN }}
           issue-title: "Deploying v1.3.5 to prod from staging"
           issue-body: "Please approve or deny the deployment of version v1.3.5."
           exclude-workflow-initiator-as-approver: false
