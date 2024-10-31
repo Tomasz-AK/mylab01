@@ -2,7 +2,6 @@ name: Deploy with Approval
 
 on:
   workflow_dispatch:
-    
 
 jobs:
   build:
@@ -21,7 +20,8 @@ jobs:
       - name: Await Approval
         uses: trstringer/manual-approval@v1.9.1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          approvers: 'twoj-uzytkownik'  # Podaj GitHub username osoby zatwierdzającej
+          minimum-approvals: 1
 
   deploy:
     runs-on: ubuntu-latest
