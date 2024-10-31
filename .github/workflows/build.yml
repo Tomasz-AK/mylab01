@@ -20,7 +20,7 @@ jobs:
       - name: Await Approval
         uses: trstringer/manual-approval@v1.9.1
         with:
-          approvers: 'twoj-uzytkownik'  # Podaj GitHub username osoby zatwierdzającej
+          approvers: 'piotr.s.koska@gmail.com'  # Podaj GitHub username osoby zatwierdzającej
           minimum-approvals: 1
 
   deploy:
