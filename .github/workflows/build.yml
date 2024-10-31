@@ -1,4 +1,4 @@
-name: Deploy with Approval
+name: Test akceptacji
 
 on:
   workflow_dispatch:
@@ -23,11 +23,11 @@ jobs:
           approvers: 'TheRealMamuth'  # Podaj GitHub username osoby zatwierdzającej
           minimum-approvals: 1
           secret: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          issue-title: "Deploying v1.3.5 to prod from staging"
-          issue-body: "Please approve or deny the deployment of version v1.3.5."
+          issue-title: "Akceptacja wdrożenia wersji v1.3.5"
+          issue-body: "Prosze o zatwierdzenie wdrożenia wersji v1.3.5"
           exclude-workflow-initiator-as-approver: false
-          additional-approved-words: ''
-          additional-denied-words: ''
+          additional-approved-words: 'TAK,tak'
+          additional-denied-words: 'NIE,nie'
           timeout-minutes: 60
 
   deploy:
