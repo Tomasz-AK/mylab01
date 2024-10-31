@@ -1,7 +1,8 @@
-name: Build Application
+name: Deploy with Approval
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    
 
 jobs:
   build:
@@ -13,14 +14,18 @@ jobs:
       - name: Build Application
         run: echo "Building application..."
 
-      - name: Request Approval
-        uses: actions/github-script@v6
+  approval:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Await Approval
+        uses: trstringer/manual-approval@v1.9.1
         with:
-          script: |
-            await github.rest.repos.createDispatchEvent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              event_type: 'deploy_approval',
-            });
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: approval
+    steps:
+      - name: Deploy Application
+        run: echo "Deploying application..."
