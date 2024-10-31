@@ -1,0 +1,12 @@
+name: Deploy Application
+
+on:
+  repository_dispatch:
+    types: [deploy_approval]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Application
+        run: echo "Deploying application..."

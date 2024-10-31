@@ -18,9 +18,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { octokit, context } = github;
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
             await octokit.rest.repos.createDispatchEvent({
               owner: context.repo.owner,
               repo: context.repo.repo,
               event_type: 'deploy_approval',
             });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
