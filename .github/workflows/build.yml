@@ -1,8 +1,7 @@
 name: Build Application
 
 on:
-  workflow_dispatch:
-    
+  workflow_dispatch
 
 jobs:
   build:
@@ -23,3 +22,5 @@ jobs:
               repo: context.repo.repo,
               event_type: 'deploy_approval',
             });
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
