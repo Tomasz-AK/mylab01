@@ -20,7 +20,7 @@ jobs:
       - name: Await Approval
         uses: trstringer/manual-approval@v1.9.1
         with:
-          approvers: 'piotr.s.koska@gmail.com'  # Podaj GitHub username osoby zatwierdzającej
+          approvers: 'TheRealMamuth'  # Podaj GitHub username osoby zatwierdzającej
           minimum-approvals: 1
           secret: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           issue-title: "Deploying v1.3.5 to prod from staging"
